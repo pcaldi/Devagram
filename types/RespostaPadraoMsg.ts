@@ -1,4 +1,4 @@
-export type respostaPadraoMsg = {
+export type RespostaPadraoMsg = {
     msg? : string,
     erro? : string,
 }
