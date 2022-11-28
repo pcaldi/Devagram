@@ -24,7 +24,7 @@ import {conectarMongoDB} from '../../middlewares/conectarMongoDB'
                     return res.status(400).json({erro : 'Email inválido'});
                 }
                 if(!usuario.senha || usuario.senha.length < 4){
-                    return res.status(400).json({erro : 'Senha inválida'});
+                    return res.status(400).json({erro : 'Senha invalida'});
                 }
                 // Validação de mesmo email
                 const usuarioComMesmoEmail = await UsuarioModel.find({email: usuario.email});
@@ -47,7 +47,7 @@ import {conectarMongoDB} from '../../middlewares/conectarMongoDB'
 
             } catch(e : any){
                 console.log(e);
-                return res.status(400).json({erro : e.toString()});
+                return res.status(500).json({erro : e.toString()});
             }
 
             });   
