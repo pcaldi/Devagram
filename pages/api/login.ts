@@ -5,7 +5,7 @@ import {conectarMongoDB} from '../../middlewares/conectarMongoDB';
 import md5 from 'md5';
 import { UsuarioModel } from '../../models/UsuarioModel';
 import jwt from 'jsonwebtoken';
-import { tokenToString } from 'typescript';
+import { politicaCors } from '../../middlewares/politicaCors';
 
 /* eslint import/no-anonymous-default-export: [2, {"allowArrowFunction": true}] */
 
@@ -41,4 +41,4 @@ const endpointLogin = async (
     return res.status(405).json({erro : 'Método informado não é válido'})
 }
 
-export default conectarMongoDB(endpointLogin);
+export default politicaCors(conectarMongoDB(endpointLogin));

@@ -4,6 +4,7 @@ import {validarTokenJwt} from '../../middlewares/validarTokenJwt'
 import { conectarMongoDB } from '../../middlewares/conectarMongoDB'
 import { UsuarioModel } from '../../models/UsuarioModel'
 import { PublicacaoModel } from '../../models/PublicacaoModel'
+import { politicaCors } from '../../middlewares/politicaCors'
 
 
 const comentarioEndpoint 
@@ -44,4 +45,4 @@ const comentarioEndpoint
     }
 }
 
-export default validarTokenJwt(conectarMongoDB(comentarioEndpoint));
+export default politicaCors(validarTokenJwt(conectarMongoDB(comentarioEndpoint)));

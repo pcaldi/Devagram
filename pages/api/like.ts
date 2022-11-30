@@ -4,6 +4,7 @@ import { validarTokenJwt } from '../../middlewares/validarTokenJwt';
 import { conectarMongoDB } from '../../middlewares/conectarMongoDB';
 import { PublicacaoModel } from '../../models/PublicacaoModel';
 import { UsuarioModel } from '../../models/UsuarioModel';
+import { politicaCors } from '../../middlewares/politicaCors';
 
 
 const likeEndpoint 
@@ -63,4 +64,4 @@ const likeEndpoint
 
 }
 
-export default validarTokenJwt(conectarMongoDB(likeEndpoint));
+export default politicaCors(validarTokenJwt(conectarMongoDB(likeEndpoint))) ;
